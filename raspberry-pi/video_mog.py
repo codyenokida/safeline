@@ -60,10 +60,10 @@ content = Content("text/plain",
 
 
 def get_emails_from_firebase():
-    emails = firebaseclient.get('/emails')
+    emails = firebaseclient.get('/emails', None)
     res = []
-    for k, v in emails.items():
-        res.append(Email(v.replace(';', '@')))
+    for e in emails:
+        res.append(Email(e.replace(';', '@')))
     return res
 
 
