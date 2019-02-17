@@ -1,8 +1,8 @@
 import React,{Component} from 'react';
 import './index.css';
 import logo from './image/safeline_logo1.png';
-import login from './image/login_screen.png';
-import check from './image/check_screen.png';
+import login from './image/new_login.png';
+import check from './image/new_check.png';
 import downbutton from './image/button.png';
 import logo2 from './image/safeline_logo.png';
 import { Container, Row, Col } from 'reactstrap';
