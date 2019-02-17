@@ -41,8 +41,8 @@ AREA_THRESHOLD = 1500
 SEND_DELAY = 200
 
 # Firebase
-firebaseclient = firebase.FirebaseApplication(
-    'https://safelineuci.firebaseio.com/', None)
+FIREBASE_URL = 'https://safelineuci.firebaseio.com/'
+firebaseclient = firebase.FirebaseApplication(FIREBASE_URL, None)
 
 
 def send_to_firebase(encoded):
@@ -57,7 +57,17 @@ from_email = Email("btjanaka@uci.edu")
 subject = "ALERT! A LOVED ONE HAS FALLEN!"
 content = Content("text/plain",
                   "PLEASE TAKE ACTION IMMEDIATELY BY CALLING 911!")
-to_emails = [Email("bryon.tjanaka@gmail.com")]
+
+
+def get_emails_from_firebase():
+    emails = firebaseclient.get('/emails')
+    res = []
+    for k, v in emails.items():
+        res.append(Email(v))
+    return res
+
+
+to_emails = get_emails_from_firebase()
 
 
 def encode_image(img):
