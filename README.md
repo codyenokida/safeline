@@ -1,28 +1,27 @@
 # SafeLine
 
-*Keeping the elderly safe and connected*
+_Keeping the elderly safe and connected_
 
 Built with Raspberry Pi, OpenCV, React.js, Firebase, SendGrid API, XCode,
 Python, Swift, Javascript
 
 Made by:
+
 - [Cody Enokida](https://github.com/codyenokida)
 - [Brandon Khong](https://github.com/brandontkhong)
 - [Meta Novitia](https://github.com/metanovitia)
 - [Bryon Tjanaka](https://github.com/btjanaka)
 
-Every 11 seconds, an older adult is treated in the emergency room for a fall.
-Every 19 minutes, an older adult dies from a fall.\* With such shocking
-statistics, who wouldn't want to do something to help the elderly?
+Falls are the one of the leading causes of injury for the elderly. Every 11
+seconds, an older adult is treated in the emergency room for a fall, and every
+19 minutes, an older adult dies from a fall.\* With such shocking statistics,
+how could we not help the elderly?
 
-Looking around, we saw that there already exist several products intended to
-help with falls. However, most of these products usually involve wearable
-devices.  Oftentimes, the elderly may find such products inconvenient to wear,
-and sometimes, they may not remember to wear it at all. Thus, we decided to
-create a method to detect falls and bring assistance to the elderly as soon as
-possible.
-
-\*[https://www.aging.com/falls-fact-sheet/](https://www.aging.com/falls-fact-sheet/).
+Looking around, we can see that there are already products like Life Alert that
+help with falls. However, most of these products are wearable devices, which is
+problematic because the elderly may find such products inconvenient to wear.
+Sometimes, they may entirely forget to wear the devices. Thus, we decided to
+create a method to detect falls and quickly bring assistance to the elderly.
 
 ## What it Does
 
@@ -32,14 +31,14 @@ email and pushing a notification to their iPhones.
 
 ## How It Works
 
-SafeLine consists of a number of components. On the Raspberry Pi, we connect a
-camera and use a Python script with OpenCV to continuously check for falls. Once
-the script detects someone falling, it uses the SendGrid API to email a message
-and an image of the fall to a list of users. It also uploads a timestamp and the
-image to Firebase. Firebase also stores the list of emails for the Python
-Script. Meanwhile, on each user's iPhones, an iOS app, built with Swift and
-XCode, detects that Firebase has been changed. It then creates the notification
-and shows it on the user's phone.
+SafeLine consists of a number of components. On a Raspberry Pi, we have
+connected a camera and used a Python script with OpenCV to continuously check
+for falls. Once the script detects someone falling, it uses the SendGrid API to
+email a message and an image of the fall to a list of users. It also uploads a
+timestamp and the image to Firebase. Firebase also stores the list of emails
+for the Python Script. Meanwhile, on each user's iPhones, an iOS app, built
+with Swift and XCode, detects that Firebase has been changed. It then
+creates the notification and shows it on the user's phone.
 
 Finally, we set up a website on Github pages using React.js. The website is also
 registered at [safeline.tech](http://www.safeline.tech)
@@ -62,13 +61,17 @@ overcome these challenges and connect our entire project.
 ## What's next for SafeLine?
 
 Here are some of the improvements we could make for SafeLine in the future:
+
 - **Multiple cameras** - we only had one camera for this project, and we would
   certainly like to integrate several, like a real home would have
 - **iOS app "friends"** - we could add features such as a "friends list" where
   people can request to watch over someone else, or to have someone else watch
   over them
-- **Better accuracy** - the app currently generates a lot of false positives
-  because the detection algorithm is relatively simple
-- **Location detection** - people nearby with the app could then be notified
+- **Better accuracy** - the detection algorithm has much room for improvement,
+  such as in minimizing the rate of false positives
+- **Location detection** - people who are near the person who has fallen can be
+  notified, even if they do not specifically monitor that person
 - **Sound detection** - on top of image detection, we could learn to recognize
-  sounds of falling or cries for help in the future
+  sounds of falling or cries for help
+
+\*[https://www.aging.com/falls-fact-sheet/](https://www.aging.com/falls-fact-sheet/)
