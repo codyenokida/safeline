@@ -1,7 +1,8 @@
 import React,{Component} from 'react';
 import './index.css';
 import logo from './image/safeline_logo1.png';
-import screenshot1 from './image/login_screen.jpg';
+import login from './image/login_screen.png';
+import check from './image/check_screen.png';
 import downbutton from './image/button.png';
 import logo2 from './image/safeline_logo.png';
 import { Container, Row, Col } from 'reactstrap';
@@ -13,7 +14,7 @@ export default class Counter extends Component {
         super(props);
         this.clicked = this.clicked.bind(this);
         this.state = {change:true}        
-        
+
         this.number = 0;
     }
 
@@ -26,7 +27,7 @@ export default class Counter extends Component {
             console.error(this.numAnim.error);
         }
 
-        this.numAnim1 = new CountUp("counter2", 1, 7000000, 0, 4);
+        this.numAnim1 = new CountUp("counter2", 1, 7000000, 0, 3);
         if (!this.numAnim1.error) {
             this.numAnim1.start();
         } else {
@@ -49,27 +50,27 @@ export default class Counter extends Component {
         return (
             <Container id='container'>
                 <Row id='background'>
-                    <img id='logo' src={logo}></img>
+                    <img id='logo' src={logo} alt="logo"></img>
                     <h1 id='learnmore'>learn more!</h1>
-                    <a id='downbutton' href='#intro1' onClick={this.clicked} ><img id='downbutton' src={downbutton}></img></a>
+                    <a id='downbutton' href='#intro1' onClick={this.clicked} ><img id='downbutton' src={downbutton} alt="downbutton"></img></a>
                 </Row>
-                <Row>
+                <Row style={{paddingBottom:'0%'}}>
                     <h1 id='intro1'>we are</h1>
                     <h1 id='intro2'>safeline</h1>
                     <div className='dash'></div>
                 </Row>
-                <Row style={{display:"flex", textAlign:"center", margin:'1vh'}}>
-                    <Col style={{width:"33.3%", paddingLeft:'10%', paddingRight:'10%', paddingBottom:'1%', paddingTop:'2%'}}>
+                <Row style={{display:"flex", textAlign:"center", margin:'0.25vh'}}>
+                    <Col style={{width:"33.3%", paddingLeft:'8%', paddingRight:'8%', paddingBottom:'0%', paddingTop:'0%'}}>
                         <div id='counter1'></div>
-                        every 11 seconds, an older adult is treated in the emergency room for a fall
+                        <p id='statistics'>Every 11 seconds, an older adult is treated in the emergency room for a fall</p>
                     </Col>
-                    <Col style={{width:"33.3%", paddingLeft:'10%', paddingRight:'10%', paddingBottom:'1%', paddingTop:'2%'}}>
+                    <Col style={{width:"33.3%", paddingLeft:'8%', paddingRight:'8%', paddingBottom:'0%', paddingTop:'0%'}}>
                     <   div id='counter2'></div>
-                        In 2014, older Americans experienced 29 million falls, resulting in 7 million injuries
+                        <p id='statistics'>In 2014, older Americans experienced 29 million falls, resulting in 7 million injuries</p>
                     </Col>
-                    <Col style={{width:"33.3%", paddingLeft:'10%', paddingRight:'10%', paddingBottom:'1%', paddingTop:'2%'}}>
+                    <Col style={{width:"33.3%", paddingLeft:'8%', paddingRight:'8%', paddingBottom:'0%', paddingTop:'0%'}}>
                         <div id='counter3'></div>
-                        Every 19 minutes, an older adult dies from a fall
+                        <p id='statistics'>Every 19 minutes, an older adult dies from a fall</p>
                     </Col>
                 </Row>
                 <Row>
@@ -78,7 +79,7 @@ export default class Counter extends Component {
                 </Row>
                 <Row style={{display:"flex", textAlign:"center", margin:'5vh'}}>
                     <Col style={{width:"50%", margin:"0%", paddingLeft:'18%', paddingRight:'10%', paddingBottom:'1%', paddingTop:'8%'}}>
-                        <img src={screenshot1}></img>
+                        <img id='screenshots' src={login} alt="login_screenshot"></img>
                     </Col>
                     <Col style={{width:"50%", margin:"0%", paddingTop:'25%', paddingRight:'20%'}}>
                         <h1 id='info'><red>login</red></h1>
@@ -88,19 +89,19 @@ export default class Counter extends Component {
                 </Row>
                 <Row style={{display:"flex", textAlign:"center", margin:'5vh'}}>
                     <Col style={{width:"50%", margin:"0%", paddingTop:'18%', paddingLeft:'20%'}}>
-                        <h1 id='info'>access your</h1>
-                        <h1 id='info'><red>community</red></h1> 
+                        <h1 id='info'>check in on</h1>
+                        <h1 id='info'><red>members</red></h1> 
                         <h1 id='info'>easily</h1>
                     </Col>
                     <Col style={{width:"50%", margin:"0%", paddingLeft:'10%', paddingRight:'18%', paddingBottom:'1%', paddingTop:'1%'}}>
-                        <img src={screenshot1}></img>
+                        <img id='screenshots' src={check} alt="check_screenshot"></img>
                     </Col>
                 </Row>
                 <Row>
-                    <img id='logo2' src={logo2}></img>
+                    <img id='logo2' src={logo2} alt="logo2"></img>
                 </Row>
                 <Row>
-                    <h1 id='smallwriting'>created by brandon khong, bryon tjanaka, cody enokida, and meta novitia</h1>
+                    <h1 id='smallwriting'>created by <a href='https://github.com/brandontkhong' target='_blank' rel="noopener noreferrer">brandon khong</a>, <a href='https://github.com/btjanaka' target='_blank' rel="noopener noreferrer">bryon tjanaka</a>, <a href='https://github.com/codyenokida' target='_blank' rel="noopener noreferrer">cody enokida</a>, and <a href='https://github.com/metanovitia' target='_blank' rel="noopener noreferrer">meta novitia</a></h1>
                 </Row>
             </Container>
         );
