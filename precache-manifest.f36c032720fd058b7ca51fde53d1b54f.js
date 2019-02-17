@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/safeline/static/media/blurry_background.1b8f5c94.jpg"
   },
   {
-    "revision": "b132cc69525d4fa69d07",
-    "url": "/safeline/static/css/main.1b67056a.chunk.css"
+    "revision": "0bcedf4dce48710f5109",
+    "url": "/safeline/static/css/main.2bf6eb6e.chunk.css"
   },
   {
     "revision": "e567c9004e5098528ad5",
@@ -20,27 +20,27 @@ self.__precacheManifest = [
     "url": "/safeline/static/media/Walkway.331b3736.ttf"
   },
   {
-    "revision": "b132cc69525d4fa69d07",
-    "url": "/safeline/static/js/main.b132cc69.chunk.js"
+    "revision": "0bcedf4dce48710f5109",
+    "url": "/safeline/static/js/main.0bcedf4d.chunk.js"
   },
   {
     "revision": "c1da0e6d142a266bcbb747b909346269",
     "url": "/safeline/static/media/safeline_logo1.c1da0e6d.png"
   },
   {
-    "revision": "c418fe276b1bd66b75d82b080bd1a812",
-    "url": "/safeline/static/media/login_screen.c418fe27.png"
+    "revision": "8f86d9d48355abd3dd9df22ad398cb06",
+    "url": "/safeline/static/media/new_login.8f86d9d4.png"
   },
   {
-    "revision": "d478f128685d75b7552bb6c7aa88af03",
-    "url": "/safeline/static/media/check_screen.d478f128.png"
+    "revision": "bbb6bbcff44f605fecc2bc609a03a550",
+    "url": "/safeline/static/media/new_check.bbb6bbcf.png"
   },
   {
     "revision": "9adab284782e55cf7ce408f44aa8302e",
     "url": "/safeline/static/media/safeline_logo.9adab284.png"
   },
   {
-    "revision": "06297a449b462e5b17964c55e189db99",
+    "revision": "2de730dfec1098d10c56f4df362c1092",
     "url": "/safeline/index.html"
   }
 ];
