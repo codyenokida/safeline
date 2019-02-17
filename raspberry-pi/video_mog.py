@@ -63,7 +63,7 @@ def get_emails_from_firebase():
     emails = firebaseclient.get('/emails')
     res = []
     for k, v in emails.items():
-        res.append(Email(v))
+        res.append(Email(v.replace(';', '@')))
     return res
 
 
