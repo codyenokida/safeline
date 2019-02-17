@@ -13,13 +13,32 @@ import os
 import sendgrid
 import time
 
+# Overview: This algorithm for fall detection is very rudimentary. At each frame
+# of the video stream, it simply finds the largest moving shape and draws a
+# rectangle around it. If that rectangle has large enough area, the algorithm
+# checks if the rectangle is wider than it is large, by some scale. If this is
+# true, the algorithm adds 1 to a count called "fallen". If fallen crosses a
+# certain threshold, a fall is registered, and the script sends an email and
+# updates the database. After this, it sets a "sent" variable to the SEND_DELAY
+# value. Once this sent variable has reached 0, the script is allowed to detect
+# falling again (this delay prevents the script from repeatedly detecting the
+# same fall).
+
+# delay between checks in milliseconds
 DELAY = 20
+
+# how many frames does the person have to be fallen to consider a fall?
 FALL_THRESHOLD = 10
-SCALE = 1.1  # how much wider than longer does someone have to be to be "falling"?
+
+# how much wider than longer does someone have to be to be "falling"?
+SCALE = 1.1
+
+# how big does the box have to be in order to be considered a person?
+AREA_THRESHOLD = 1500
 
 # how many intervals to wait before we can send the msg
-# again? - currently this comes out to 1 min - 3000 * DELAY
-SEND_DELAY = 3000
+# again? - currently this comes out to 1 min - 1000 * DELAY
+SEND_DELAY = 200
 
 # Firebase
 firebaseclient = firebase.FirebaseApplication(
@@ -59,7 +78,7 @@ def send_emails_via_sendgrid(encoded_img: "base 64 string"):
         email_data = Mail(from_email, subject, to_email, content)
         email_data.add_attachment(attachment)
         response = sgclient.client.mail.send.post(request_body=email_data.get())
-        print(response.status_code)
+        print("email status: {}".format(response.status_code))
 
 
 def send_datas(img):
@@ -126,10 +145,12 @@ def main():
                 # Find max contour
                 mxi = max((i for i in range(len(contours))),
                           key=lambda i: cv2.contourArea(contours[i]))
+
                 x, y, w, h = cv2.boundingRect(contours[mxi])
 
                 # Detect fallen
-                if w > SCALE * h:
+                if w > SCALE * h and cv2.contourArea(
+                        contours[mxi]) >= AREA_THRESHOLD:
                     fallen = min(FALL_THRESHOLD * 2, fallen + 1)
                 else:
                     fallen = max(0, fallen - 1)
