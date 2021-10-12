@@ -4,7 +4,7 @@ idna==2.8
 imutils==0.5.2
 numpy==1.16.1
 opencv-contrib-python==3.4.4.19
-opencv-python==3.4.4.19
+opencv-python==4.2.0.32
 picamera==1.13
 pkg-resources==0.0.0
 python-firebase==1.2
