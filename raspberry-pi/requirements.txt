@@ -2,7 +2,7 @@ certifi==2018.11.29
 chardet==3.0.4
 idna==2.8
 imutils==0.5.2
-numpy==1.16.1
+numpy==1.22.0
 opencv-contrib-python==3.4.4.19
 opencv-python==3.4.4.19
 picamera==1.13
